@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>To-Do List</title>
+    <link rel="stylesheet" href="./assets/styles/main.css">
+<body>
+    <header class="header container">
+        <h1 class="title">
+            To-Do List
+        </h1>
+        <ul class="block-categories"> 
+            <li class="category" data-category="all">
+                Все
+            </li>
+            <li class="category" data-category="important">
+                Важные
+            </li>
+            <li class="category category-active" data-category="incomplete">
+                Незавершенные
+            </li>
+            <li class="category" data-category="complete">
+                Завершенные
+            </li>
+        </ul>
+    </header>
+    <ul class="todo-list container">
+        <!--
+        <li class="todo">
+            <div class="check"></div>
+            <div class="todo-text">Выпить кофе</div>
+            <div class="star star-active"></div>
+        </li>
+        <li class="todo todo--compleate">
+            <div class="check"></div>
+            <div class="todo-text">Выпить кофе</div>
+            <div class="star star-active"></div>
+        </li>
+         -->
+    </ul>
+    <div class="block-btn container">
+        <input  class="todos" type="text" placeholder="Введите задачу...">
+        <button class="todos-btn"></button>
+    </div>
+
+    <script src="./assets/scripts/main.js"></script>
+</body>
+</html>
+
+
+
+<!-- 
+    1) Добавлять элементы в список +
+    2) Удалять эдементы из списка !!!
+    3) Редактировать элемент !!!
+    3+)Сделать объектом +
+    4) Добавить отличительную черту(важные) +
+    4+)При клике на todo оно считается выполненым +
+    5) Счетчик выполненных дел !!!
+    6) Сортировка +
+    6+)верстка +
+    _________
+    7) Таймер на выполнение xz
+    8) Ярлыки( по тегам (для Саши для Марины и тд)) 
+    9)
+-->

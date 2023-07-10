@@ -1,0 +1,234 @@
+@import 'default';
+@import 'fonts/fonts.scss';
+
+$yellow: #FFB43A;
+$blackBLue: #272833;
+$black: #1C1C27;
+$red: #E94141;
+$white: #FCFCFC;
+
+
+body{
+    background-color: $black;
+    font-family: 'Inter';
+    font-style: normal;
+    color: $white;
+}
+.none{
+    display: none;
+}
+.container{
+    max-width: 768px;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+
+.header{
+   padding-top: 40px;
+    margin-bottom: 72px;
+
+    .title{
+        margin-bottom: 52px;
+        text-align: center;
+    }
+}
+
+.title{
+    font-weight: 700;
+    font-size: 24px;
+    line-height: 29px;
+}
+.block-categories{
+    display: flex;
+    justify-content: space-between;
+}
+.category{
+    display: inline;
+    position: relative;
+    
+    font-weight: 400;
+    font-size: 16px;
+    line-height: 19px;
+    color: #C1C1C1;
+    text-align: center;
+    cursor: pointer;
+
+    @media (max-width: 500px) {
+        font-size: 12px;
+    }
+
+    &-active{
+        font-weight: 500;
+        color: $white;
+        &::after{
+            content: '';
+            position: absolute;
+            width: 80%;
+            height: 2px;
+            bottom: -5px;
+            left: 10%;
+            background-color: $yellow;
+            transform-origin: bottom right;
+            transition: transform 0.5s ease-out;
+            transform: scaleX(1);
+            transform-origin: bottom left;
+        }
+    }
+}
+.todo-list{
+    max-width: 510px;
+    margin-left: auto;
+    margin-right: auto;
+}
+.todo{
+    position: relative;
+    margin-top: 25px;
+    padding: 12px 25px;
+    background: $blackBLue;
+    border-radius: 15px;
+
+    &-text{
+        display: inline-block;
+        vertical-align: middle;
+        font-weight: 400;
+        font-size: 20px;
+        @media (max-width: 500px) {
+            font-size: 12px;
+        }
+    }   
+}
+
+.todo--compleate{
+    .check{
+       border: none;
+       background-color: $yellow;
+       &::before{
+            content: '';
+            display: inline-block;
+            position: relative;
+            top: 2px;
+            left: 1px;
+            width: 22px;
+            height: 16px;
+            background-image: url(./../image/icon/check.svg);
+            background-repeat: no-repeat;
+            background-size: cover;
+       }
+    }
+    .todo-text{
+        position: relative;
+       &::before{
+            content: '';
+            position: absolute;
+            top: 14px;
+            left: -10%;
+            display: block;
+            width: 120%;
+            height: 3px;
+            background-color: $yellow; 
+            
+            @media (max-width: 500px) {
+                top: 7px;
+                height: 2px;
+            }
+       }
+    }
+}
+
+.check{
+    display: inline-block;
+    vertical-align: middle;
+    margin-right: 24px;
+    width: 25px;
+    height: 25px;
+    border-radius: 5px;
+    border: 3px solid $yellow;
+    cursor: pointer;
+}
+.star{
+    //display: inline-block;
+    //vertical-align: middle;
+    position: absolute;
+    right: calc( 25px + 25px + 14px + 25px + 14px);
+    top: calc(50% - 13px);
+    width: 28px;
+    height: 25px;
+    background-image: url('./../image/icon/star.svg');
+    background-size: cover;
+    background-repeat: no-repeat;
+    cursor: pointer;
+
+    &-active{
+        background-image: url('./../image/icon/star-active.svg');
+    }
+}
+.block-btn{
+    max-width: 378px;
+    margin-top: 50px;
+    margin-left: auto;
+    margin-right: auto;
+}
+.todos{ 
+    padding: 17px 0px  17px 32px;
+    background: rgba(255, 180, 58, 0.3);
+    outline:none;
+    border: 2px solid #FFB43A;
+    border-radius: 50px;
+
+    font-weight: 500;
+    font-size: 14px;
+    line-height: 17px;
+    color: $white;
+
+    &-btn{
+        border: none;
+        margin-left: 30px;
+        vertical-align: middle;
+        position: relative;
+        width: 50px;
+        height: 50px;
+        background-color: $yellow;
+        border-radius: 50px;
+        cursor: pointer;
+        transition: transform 1.5s ease-out;
+        &:active{
+            transition: transform 1.5s ease-out;
+            background-color: rgba(255, 180, 58, 0.3);
+        }
+        &::before{
+            content: '';
+            display: block;
+            width: 30px;
+            height: 30px;
+            position: absolute;
+            top: calc(50% - 15px);
+            left: calc(50% - 15px);
+            background-image: url('./../image/icon/plus.svg');
+            background-size: contain;
+            background-repeat: no-repeat;
+        }
+    }
+}
+.edit{
+    position: absolute;
+    right: calc( 25px + 25px + 14px );
+    top: calc(50% - 13px);
+    width: 25px;
+    height: 25px;
+    background-image: url('./../image/icon/edit.svg');
+    background-size: cover;
+    background-repeat: no-repeat;
+    cursor: pointer;
+}
+.delete{
+    position: absolute;
+    right: calc( 25px );
+    top: calc(50% - 13px);
+    width: 22px;
+    height: 25px;
+    background-image: url('./../image/icon/delete.svg');
+    background-size: cover;
+    background-repeat: no-repeat;
+    cursor: pointer;
+}

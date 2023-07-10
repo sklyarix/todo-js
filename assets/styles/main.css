@@ -1,0 +1,326 @@
+@charset "UTF-8";
+/* Указываем box sizing */
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
+
+/* Убираем внутренние отступы */
+ul[class],
+ol[class] {
+  padding: 0;
+}
+
+/* Убираем внешние отступы */
+body,
+h1,
+h2,
+h3,
+h4,
+p,
+ul,
+ol,
+li,
+figure,
+figcaption,
+blockquote,
+dl,
+dd {
+  margin: 0;
+}
+
+/* Выставляем основные настройки по-умолчанию для body */
+body {
+  min-height: 100vh;
+  scroll-behavior: smooth;
+  text-rendering: optimizeSpeed;
+  line-height: 1.5;
+}
+
+/* Удаляем стандартную стилизацию для всех ul и il, у которых есть атрибут class*/
+ul,
+ol {
+  list-style: none;
+}
+
+/* Элементы a, у которых нет класса, сбрасываем до дефолтных стилей */
+a:not([class]) {
+  text-decoration-skip-ink: auto;
+}
+
+/* Упрощаем работу с изображениями */
+img {
+  max-width: 100%;
+  display: block;
+}
+
+/* Указываем понятную периодичность в потоке данных у article*/
+article > * + * {
+  margin-top: 1em;
+}
+
+/* Наследуем шрифты для инпутов и кнопок */
+input,
+button,
+textarea,
+select {
+  font: inherit;
+}
+
+/* Удаляем все анимации и переходы для людей, которые предпочитай их не использовать */
+@media (prefers-reduced-motion: reduce) {
+  * {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+    scroll-behavior: auto !important;
+  }
+}
+@font-face {
+  font-family: 'Inter';
+  src: url("./fonts/Inter/Inter-Bold.ttf") format("truetype");
+  font-weight: 700;
+  font-style: normal;
+}
+@font-face {
+  font-family: 'Inter';
+  src: url("./fonts/Inter/Inter-Medium.ttf") format("truetype");
+  font-weight: 500;
+  font-style: normal;
+}
+@font-face {
+  font-family: 'Inter';
+  src: url("./fonts/Inter/Inter-Regular.ttf") format("truetype");
+  font-weight: 400;
+  font-style: normal;
+}
+body {
+  background-color: #1C1C27;
+  font-family: 'Inter';
+  font-style: normal;
+  color: #FCFCFC;
+}
+
+.none {
+  display: none;
+}
+
+.container {
+  max-width: 768px;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.header {
+  padding-top: 40px;
+  margin-bottom: 72px;
+}
+.header .title {
+  margin-bottom: 52px;
+  text-align: center;
+}
+
+.title {
+  font-weight: 700;
+  font-size: 24px;
+  line-height: 29px;
+}
+
+.block-categories {
+  display: flex;
+  justify-content: space-between;
+}
+
+.category {
+  display: inline;
+  position: relative;
+  font-weight: 400;
+  font-size: 16px;
+  line-height: 19px;
+  color: #C1C1C1;
+  text-align: center;
+  cursor: pointer;
+}
+@media (max-width: 500px) {
+  .category {
+    font-size: 12px;
+  }
+}
+.category-active {
+  font-weight: 500;
+  color: #FCFCFC;
+}
+.category-active::after {
+  content: '';
+  position: absolute;
+  width: 80%;
+  height: 2px;
+  bottom: -5px;
+  left: 10%;
+  background-color: #FFB43A;
+  transform-origin: bottom right;
+  transition: transform 0.5s ease-out;
+  transform: scaleX(1);
+  transform-origin: bottom left;
+}
+
+.todo-list {
+  max-width: 510px;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.todo {
+  position: relative;
+  margin-top: 25px;
+  padding: 12px 25px;
+  background: #272833;
+  border-radius: 15px;
+}
+.todo-text {
+  display: inline-block;
+  vertical-align: middle;
+  font-weight: 400;
+  font-size: 20px;
+}
+@media (max-width: 500px) {
+  .todo-text {
+    font-size: 12px;
+  }
+}
+
+.todo--compleate .check {
+  border: none;
+  background-color: #FFB43A;
+}
+.todo--compleate .check::before {
+  content: '';
+  display: inline-block;
+  position: relative;
+  top: 2px;
+  left: 1px;
+  width: 22px;
+  height: 16px;
+  background-image: url(./../image/icon/check.svg);
+  background-repeat: no-repeat;
+  background-size: cover;
+}
+.todo--compleate .todo-text {
+  position: relative;
+}
+.todo--compleate .todo-text::before {
+  content: '';
+  position: absolute;
+  top: 14px;
+  left: -10%;
+  display: block;
+  width: 120%;
+  height: 3px;
+  background-color: #FFB43A;
+}
+@media (max-width: 500px) {
+  .todo--compleate .todo-text::before {
+    top: 7px;
+    height: 2px;
+  }
+}
+
+.check {
+  display: inline-block;
+  vertical-align: middle;
+  margin-right: 24px;
+  width: 25px;
+  height: 25px;
+  border-radius: 5px;
+  border: 3px solid #FFB43A;
+  cursor: pointer;
+}
+
+.star {
+  position: absolute;
+  right: calc( 25px + 25px + 14px + 25px + 14px);
+  top: calc(50% - 13px);
+  width: 28px;
+  height: 25px;
+  background-image: url("./../image/icon/star.svg");
+  background-size: cover;
+  background-repeat: no-repeat;
+  cursor: pointer;
+}
+.star-active {
+  background-image: url("./../image/icon/star-active.svg");
+}
+
+.block-btn {
+  max-width: 378px;
+  margin-top: 50px;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.todos {
+  padding: 17px 0px  17px 32px;
+  background: rgba(255, 180, 58, 0.3);
+  outline: none;
+  border: 2px solid #FFB43A;
+  border-radius: 50px;
+  font-weight: 500;
+  font-size: 14px;
+  line-height: 17px;
+  color: #FCFCFC;
+}
+.todos-btn {
+  border: none;
+  margin-left: 30px;
+  vertical-align: middle;
+  position: relative;
+  width: 50px;
+  height: 50px;
+  background-color: #FFB43A;
+  border-radius: 50px;
+  cursor: pointer;
+  transition: transform 1.5s ease-out;
+}
+.todos-btn:active {
+  transition: transform 1.5s ease-out;
+  background-color: rgba(255, 180, 58, 0.3);
+}
+.todos-btn::before {
+  content: '';
+  display: block;
+  width: 30px;
+  height: 30px;
+  position: absolute;
+  top: calc(50% - 15px);
+  left: calc(50% - 15px);
+  background-image: url("./../image/icon/plus.svg");
+  background-size: contain;
+  background-repeat: no-repeat;
+}
+
+.edit {
+  position: absolute;
+  right: calc( 25px + 25px + 14px );
+  top: calc(50% - 13px);
+  width: 25px;
+  height: 25px;
+  background-image: url("./../image/icon/edit.svg");
+  background-size: cover;
+  background-repeat: no-repeat;
+  cursor: pointer;
+}
+
+.delete {
+  position: absolute;
+  right: calc( 25px );
+  top: calc(50% - 13px);
+  width: 22px;
+  height: 25px;
+  background-image: url("./../image/icon/delete.svg");
+  background-size: cover;
+  background-repeat: no-repeat;
+  cursor: pointer;
+}
+
+/*# sourceMappingURL=main.css.map */
